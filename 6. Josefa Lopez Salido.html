@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Josefa Lopez Salido</title>
+  <style>
+    /* Variables Globales */
+    :root {
+      --bg: #f6f7fb;
+      --card: #fff;
+      --ink: #111;
+      --muted: #555;
+      --border: rgba(0, 0, 0, .12);
+      --shadow: 0 10px 28px rgba(0, 0, 0, .08);
+      --radius: 18px;
+    }
+
+    /* Reset y Base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    /* Cabecera */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(246, 247, 251, .92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+
+    .sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Layout Principal */
+    main .wrap {
+      padding-top: 18px;
+      padding-bottom: 28px;
+    }
+
+    /* Título de Grupo / Persona */
+    .group-title {
+      margin: 42px 0 16px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Línea decorativa minimalista */
+    .group-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Eliminar margen superior si es el primer título */
+    .group-title:first-of-type {
+      margin-top: 10px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Tarjetas (Cards) */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 400px;
+    }
+
+    /* Miniatura y Overlay de Play */
+    .thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #e9ecf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: rgba(0, 0, 0, .65);
+      color: #fff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      z-index: 2;
+    }
+
+    .play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .playIcon {
+      width: 66px;
+      height: 66px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid rgba(0, 0, 0, .12);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .18);
+    }
+
+    .playIcon:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 18px solid rgba(0, 0, 0, .80);
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 3px;
+    }
+
+    /* Cuerpo de la tarjeta */
+    .body {
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .h2 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+
+    .cap {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: 13.5px;
+    }
+
+    /* Botones y Footer */
+    .actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .linkBtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    
+    .linkBtn:hover {
+      background: #333;
+    }
+
+    .note {
+      margin: 40px 2px 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Vídeos VR - Los sitios donde siempre quise ir</h1>
+      <div class="sub">Experiencias inmersivas seleccionadas</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- 6. Josefa Lopez Salido -->
+      <h2 class="group-title">6. Josefa Lopez Salido</h2>
+      <section class="grid">
+        <article class="card">
+          <div class="thumb">
+            <span class="badge">Océano</span>
+            <img src="https://i.ytimg.com/vi/B9IGe7s6Ook/hqdefault.jpg" alt="Bajo el agua">
+            <div class="play"><div class="playIcon"></div></div>
+          </div>
+          <div class="body">
+            <h2 class="h2">Bajo el agua / Submarino</h2>
+            <p class="cap">Inmersión con fauna marina.<br>Duración: 8:18</p>
+            <div class="actions"><a class="linkBtn" href="https://youtu.be/B9IGe7s6Ook" target="_blank" rel="noopener">Abrir vídeo</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <span class="badge">Canadá</span>
+            <img src="https://i.ytimg.com/vi/__kQAlOJhfQ/hqdefault.jpg" alt="Canadá">
+            <div class="play"><div class="playIcon"></div></div>
+          </div>
+          <div class="body">
+            <h2 class="h2">Canadá</h2>
+            <p class="cap">Paisajes naturales canadienses.<br>Duración: N/D</p>
+            <div class="actions"><a class="linkBtn" href="https://youtu.be/__kQAlOJhfQ" target="_blank" rel="noopener">Abrir vídeo</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <span class="badge">Egipto</span>
+            <img src="https://i.ytimg.com/vi/6Qdh1dNwWL4/hqdefault.jpg" alt="Pirámides">
+            <div class="play"><div class="playIcon"></div></div>
+          </div>
+          <div class="body">
+            <h2 class="h2">Pirámides de Egipto</h2>
+            <p class="cap">Tour por la necrópolis de Guiza.<br>Duración: 10:29</p>
+            <div class="actions"><a class="linkBtn" href="https://youtu.be/6Qdh1dNwWL4" target="_blank" rel="noopener">Abrir vídeo</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <span class="badge">Montaña</span>
+            <img src="https://i.ytimg.com/vi/E5Mf6uReD3Q/hqdefault.jpg" alt="Pirineos">
+            <div class="play"><div class="playIcon"></div></div>
+          </div>
+          <div class="body">
+            <h2 class="h2">Paisajes de Montaña</h2>
+            <p class="cap">Vistas de los Pirineos.<br>Duración: 4:35</p>
+            <div class="actions"><a class="linkBtn" href="https://youtu.be/E5Mf6uReD3Q" target="_blank" rel="noopener">Abrir vídeo</a></div>
+          </div>
+        </article>
+      </section>
+
+      <div class="note">
+        Este catálogo es compatible con la mayoría de visores VR y navegadores móviles. No requiere scripts.
+      </div>
+    </div>
+  </main>
+</body>
+</html>
